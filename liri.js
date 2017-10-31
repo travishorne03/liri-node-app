@@ -30,6 +30,10 @@ switch (liriType) {
         case 'Song':
         songs();
         break;
+
+        case 'Random':
+        random();
+        break;
 }
 
 function tweets(){
@@ -64,5 +68,11 @@ function movies(){
 
 function songs(){
   console.log("songs function");
+
+}
+
+
+function random(){
+  console.log("random function");
 
 }

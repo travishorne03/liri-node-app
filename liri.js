@@ -19,7 +19,7 @@ var client = new twitter({
 });
 
 switch (liriType) {
-        case 'Twitter':
+        case 'my-tweets':
         tweets();
         break;
 
@@ -39,7 +39,7 @@ switch (liriType) {
 function tweets(){
   console.log("twitter function");
 
-  var twitHandle = process.argv[3];
+  var twitHandle = process.argv = '@yourtwitterhandle';
 	var params = { screen_name: liriSearch };
 
 	client.get('statuses/user_timeline', params, function(error, tweets, response) {

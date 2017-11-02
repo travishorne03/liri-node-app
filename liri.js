@@ -8,6 +8,8 @@ var request = require("request");
 
 //console.log(process.argv);
 
+var spotify = require("spotify");
+
 var liriType = process.argv[2];
 var liriSearch= process.argv[3];
 
@@ -18,17 +20,20 @@ var client = new twitter({
     access_token_secret: twitCred.twitterKeys.access_token_secret
 });
 
+
+
+
 switch (liriType) {
         case 'my-tweets':
         tweets();
         break;
 
-        case 'Movie':
-        movies();
-        break;
-
         case 'Song':
         songs();
+        break;
+
+        case 'Movie':
+        movies();
         break;
 
         case 'Random':
@@ -42,8 +47,8 @@ function tweets(){
   var twitHandle = process.argv = '@yourtwitterhandle';
 	var params = { screen_name: liriSearch };
 
-	client.get('statuses/user_timeline', params, function(error, tweets, response) {
-	    if  (error)  {        
+	client.get('statuses/user_timeline', params, function(err, tweets, response) {
+	    if  (err)  {        
 	        console.log('Error occurred: '  +  error);      
 	        return;    
 	    }
@@ -58,6 +63,15 @@ function tweets(){
 	    console.log('\r\n================================================================');
 
 	});
+}
+
+function spotify(){
+  console.log("spotify function");
+
+var
+
+
+
 }
 
 

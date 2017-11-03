@@ -1,4 +1,4 @@
-var fs = requeire("fs");
+var fs = require("fs");
 
 var twitCred = require("./keys.js");
 
@@ -124,10 +124,44 @@ appendFile("Spotify link: " + dataItems[matchedTracks[0]].external_urls.spotify)
 }
 
 else if (serachedTrack.length == 0){
-  console.log("Sorry, but spotify does not contain that song in their database :(");
+  console.log("Sorry, that song not accessible:(");
+  appendFile("Sorry, that song not accessible:("))
+
+    }
+
+  });
 
 }
 
-});
+function movieThis(value) {
+    if (value == null) {
+        value = 'Mr. Nobody';
+    }
 
-}
+    request('http://www.omdbapi.com/?apikey=40e9cece&t=' + value +'&tomatoes=true&r=json', function(error, response, body) {
+        if(error){
+        	console.log(error);
+        } else {
+            console.log('------------------------------------------------------');
+            var body = JSON.parse(body);
+        	//console.log('Body',JSON.stringify(JSON.parse(body)));
+            console.log('Movie Title: ',body.Title);
+            console.log('------------------------------------------------------');
+            console.log('Made in ',body.Year);
+            console.log('------------------------------------------------------');
+            console.log('IMDB Rating: ',body.Ratings[0].Value);
+            console.log('------------------------------------------------------');
+            console.log('Rotten Tomatoes Rating: ',body.Ratings[1].Value);
+            console.log('------------------------------------------------------');
+            console.log('Country where '+body.Title+' was produced: '+body.Country);
+            console.log('------------------------------------------------------');
+            console.log('Language of '+body.Title+': '+body.Language);
+            console.log('------------------------------------------------------');
+            console.log('Plot: ',body.Plot);
+            console.log('------------------------------------------------------');
+            console.log('Actors who starred in '+body.Title+': '+body.Actors);
+            console.log('------------------------------------------------------');
+
+        }
+    });
+} 
